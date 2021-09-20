@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 project(Evolution VERSION 0.0.1 LANGUAGES CXX)
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT WIN32)
   option(EVOLUTION_USE_LIBCXX "Use libc++" ON)
 else ()
   option(EVOLUTION_USE_LIBCXX "Use libc++" OFF)
@@ -63,6 +63,8 @@ add_executable(main
   src/main.cpp
   src/Turf.cpp
   src/World.cpp
+  src/Entity.cpp
+  src/DummyEntity.cpp
 )
 
 target_compile_definitions(main PRIVATE SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE)

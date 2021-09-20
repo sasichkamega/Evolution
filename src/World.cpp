@@ -52,4 +52,5 @@ void World::update() {
   for(const std::shared_ptr<Entity>& entity : entities) {
     entity->update();
   }
+  to_destroy.clear();
 }
